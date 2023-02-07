@@ -1,4 +1,5 @@
 const addCampos = require('./addCampos')
+const cadastro = require('./Cadastro')
 const leitura = require('./leitura')
 const Tabela = require('./Tabela')
 
@@ -11,6 +12,9 @@ async function Main() {
   console.log(table1.rows)
   //modelTable.create({ nome: ' Anderson ' })
   addCampos(table1.title)
+
+  //Começar a montar a lógica do codastro dos Itens
+  cadastro(table1.rows)
 }
 
 Main()
