@@ -1,12 +1,16 @@
 const Sequelize = require('sequelize')
 const connection = require('./connection')
+const addCampos = require('../addCampos')
 
-const modelTable = connection.define('TABLE2', {
-  nome: { type: Sequelize.STRING, allowNull: false }
-})
+function criarTabela(tabela, table1) {
+  const modelTable = connection.define(tabela, {})
 
-modelTable.sync({ force: true }).then(() => {
-  console.log('tabela criada')
-})
+  modelTable.sync({ force: true }).then(() => {
+    console.log('tabela criada')
+    addCampos(table1.title, tabela)
+  })
 
-module.exports = modelTable
+  console.log('cadastro feito')
+}
+
+module.exports = criarTabela
